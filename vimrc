@@ -26,6 +26,8 @@ set foldmethod=indent
 nnoremap <Leader><Space> za
 vnoremap <Leader><Space> zf
 
+set wildmenu
+set wildmode=list:longest,full
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
 set incsearch           " Incremental search
@@ -35,6 +37,9 @@ set autoindent tabstop=4 shiftwidth=4
 set colorcolumn=81              " Highlight long lines
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" per-project .vimrc
+set exrc
 
 " "fix" regex
 nnoremap / /\v
@@ -60,6 +65,7 @@ endif
 
 " Helpers
 nnoremap <leader>a :Ack 
+nmap <leader>wt :tabclose<cr>
 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
