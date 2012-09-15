@@ -1,3 +1,7 @@
+" vim exits with non-zero sometimes, thanks to pathogen.
+filetype on
+call pathogen#infect()
+
 if has("syntax")
   syntax on
 endif
@@ -12,7 +16,8 @@ endif
 " When I want to change thing
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-call pathogen#infect()
+" SLIME
+let g:slime_target = "tmux"
 
 au BufNewFile,BufRead *.pt,*.cpt,*.zpt set filetype=zpt syntax=xml
 
@@ -26,6 +31,9 @@ set foldmethod=indent
 nnoremap <Leader><Space> za
 vnoremap <Leader><Space> zf
 
+" Spelling (useful for documentation/commits)
+nnoremap <Leader>s :setlocal spell! spell?<cr>
+
 set wildmenu
 set wildmode=list:longest,full
 set showcmd             " Show (partial) command in status line.
@@ -36,6 +44,9 @@ set copyindent                  " Preserve vertical alignment when indenting
 set autoindent tabstop=4 shiftwidth=4
 set colorcolumn=81              " Highlight long lines
 set hlsearch
+set hidden
+set title
+
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " per-project .vimrc
