@@ -29,17 +29,22 @@ silent !source ~/.profile
 set encoding=utf-8
 
 " folding
-set foldmethod=indent
-nnoremap <Leader><Space> za
-vnoremap <Leader><Space> zf
+"set foldmethod=indent
+"nnoremap <Leader><Space> za
+"vnoremap <Leader><Space> zf
 
 " Spelling (useful for documentation/commits)
 nnoremap <Leader>s :setlocal spell! spell?<cr>
+nnoremap <Leader>f :setlocal foldenable! foldenable?<cr>
+nnoremap <Leader>qc :cclose <bar> :lclose<cr>
 
 set wildmenu
 set wildmode=list:longest,full
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
+set ruler
+set showmode
+set laststatus=2
 set incsearch           " Incremental search
 set nu
 set copyindent                  " Preserve vertical alignment when indenting
@@ -79,6 +84,7 @@ endif
 " Helpers
 nnoremap <leader>a :Ack 
 nmap <leader>wt :tabclose<cr>
+nmap <leader>nt :tabnew<cr>
 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
