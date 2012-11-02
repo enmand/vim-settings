@@ -11,6 +11,8 @@ set mouse=a
 
 if has("autocmd")
         filetype plugin indent on
+		autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+		autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 endif
 
 " When I want to change thing
