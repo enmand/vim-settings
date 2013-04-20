@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/enmand/Downloads/OEBPS'
+let g:netrw_dirhist_2='/Users/enmand/Dropbox/Code/znanja/webapp-build/scripts/lms'
+let g:netrw_dirhist_3='/Users/enmand/Dropbox/Code/znanja/znanja/static/scripts/vendor/codemirror/mode/htmlembedded'
+let g:netrw_dirhist_4='/Users/enmand/.irssi'
+let g:netrw_dirhist_5='/Users/enmand/Dropbox/Code/arbiter'
+let g:netrw_dirhist_6='/Users/enmand/Dropbox/Code/znanja/znanja/static/media/scripts/tests/cssSanitize'
+let g:netrw_dirhist_7='/Volumes/Data/Google Drive/znanja/SDC'

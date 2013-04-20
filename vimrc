@@ -22,12 +22,11 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 let g:slime_target = "tmux"
 
 au BufNewFile,BufRead *.pt,*.cpt,*.zpt set filetype=zpt syntax=xml
-
+au BufRead,BufNewFile todo.txt,done.txt set filetype=todo
 " read our profile for $PATH and other environment vairables
 silent !source ~/.profile
 
 set encoding=utf-8
-
 " folding
 "set foldmethod=indent
 "nnoremap <Leader><Space> za
@@ -49,10 +48,12 @@ set incsearch           " Incremental search
 set nu
 set copyindent                  " Preserve vertical alignment when indenting
 set autoindent tabstop=4 shiftwidth=4
-set colorcolumn=81              " Highlight long lines
+set colorcolumn=61,81              " Highlight long lines
 set hlsearch
 set hidden
 set title
+
+match ErrorMsg '\%>80v.\+'
 
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
@@ -81,8 +82,26 @@ if has("unix")
 	endif
 endif
 
+" Enable omni completion. Not required if they are already set elsewhere in
+" .vimrc
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion, which require computational power and may stall the vim. 
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+
 " Helpers
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack --ignore-dir=node_modules --ignore-dir=build 
 nmap <leader>wt :tabclose<cr>
 nmap <leader>nt :tabnew<cr>
 
@@ -96,10 +115,23 @@ let g:neocomplcache_enable_at_startup = 1
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_python_checker = 'pylint'
+
+" Ignore node_modules in ctrlp
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|build|__pycache__|.git|.hg|.svn|.npm)$'
 
 " NERDTree can be a little annoying
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
 
 map <F10> :NERDTreeToggle<cr>
 imap <F10> :NERDTreeToggle<cr>
@@ -109,6 +141,10 @@ map <S-F10> :NERDTreeMirror<cr>
 imap <S-F10> :NERDTreeMirror<cr>
 vmap <S-F10> :NERDTreeMirror<cr>
 
+map <F11> :NERDTreeFind<cr>
+imap <F11> :NERDTreeFind<cr>
+vmap <F11> :NERDTreeFind<cr>
+
 nmap <F8> :TagbarToggle<CR>
 imap <F8> :TagbarToggle<CR>
 vmap <F8> :TagbarToggle<CR>
@@ -116,8 +152,28 @@ vmap <F8> :TagbarToggle<CR>
 nnoremap <F5> :GundoToggle<CR>
 inoremap <F5> :GundoToggle<CR>
 vnoremap <F5> :GundoToggle<CR>
-colorscheme jellybeans
-"colorscheme molokai
-"colorscheme distinguished
+
+colorscheme molokai
 set noerrorbells
 set vb
+
+map <D-1> 1gt
+imap <D-1> 1gt
+map <D-2> 2gt
+imap <D-2> 2gt
+map <D-3> 3gt
+imap <D-3> 3gt
+map <D-4> 4gt
+imap <D-4> 4gt
+map <D-5> 5gt
+imap <D-5> 5gt
+map <D-6> 6gt
+imap <D-6> 6gt
+map <D-7> 7gt
+imap <D-7> 7gt
+map <D-8> 8gt
+imap <D-8> 8gt
+map <D-9> 9gt
+imap <D-9> 9gt
+map <D-0> 10gt
+imap <D-0> 10gt
