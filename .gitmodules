@@ -76,3 +76,6 @@
 [submodule "bundle/vim-session"]
 	path = bundle/vim-session
 	url = git://github.com/xolox/vim-session.git
+[submodule "ftplugin/sparkup"]
+	path = ftplugin/sparkup
+	url = https://github.com/rstacruz/sparkup
