@@ -1,5 +1,8 @@
 My personal .vimrc.
 
-Todo
+Installation
 ====
-I should probably make the plugins and things proper git submodules
+    git clone https://github.com/enmand/vim-settings.git ~/.vim
+    ln -s ~./vim/vimrc ~/.vimrc
+    cd ~/.vim
+    git submodule update --init
