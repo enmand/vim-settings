@@ -25,6 +25,7 @@ au BufNewFile,BufRead *.pt,*.cpt,*.zpt set filetype=zpt syntax=xml
 au BufRead,BufNewFile todo.txt,done.txt set filetype=todo
 " read our profile for $PATH and other environment vairables
 silent !source ~/.profile
+set rtp+=/Users/enmand/.vim/bundle/powerline/powerline/bindings/vim
 
 set encoding=utf-8
 " folding
@@ -44,6 +45,7 @@ set showmatch           " Show matching brackets.
 set ruler
 set showmode
 set laststatus=2
+set statusline=%f\ %m%h%r%w\ %y\ %{fugitive#statusline()}%=\ B%3n\ ·\ L%5l/%5L\ ·\ C%7(%c%V%)\ ·\ %4(0x%B%)\ ·\ %P
 set incsearch           " Incremental search
 set nu
 set copyindent                  " Preserve vertical alignment when indenting
@@ -74,7 +76,7 @@ set nocompatible
 if has("unix")
 	let s:uname = system("uname")
 	if s:uname == "Darwin\n"
-		set guifont=Monaco:h12
+		set guifont=Monaco\ for\ Powerline:h12
 		if has("gui_macvim")
 			let macvim_hig_shift_movement = 1
 			set guioptions-=T
@@ -90,32 +92,32 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion, which require computational power and may stall the vim. 
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+" Enable heavy omni completion, which require computational power and may stall the vim.
+"if !exists('g:neocomplcache_omni_patterns')
+"  let g:neocomplcache_omni_patterns = {}
+"endif
+"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 "autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
+"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-" Helpers
+" Helpers. Trailing space isn't a mistake
 nnoremap <leader>a :Ack --ignore-dir=node_modules --ignore-dir=build 
 nmap <leader>wt :tabclose<cr>
 nmap <leader>nt :tabnew<cr>
 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
 
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 0
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_python_checker = 'pylint'
+let g:syntastic_java_javac_config_file_enabled=1
 
 " Ignore node_modules in ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|build|__pycache__|.git|.hg|.svn|.npm)$'
@@ -124,6 +126,10 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|build|__pycache__|.git|.hg|.svn
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
 
+" YouCompleteMe
+
+noremap <leader>jd YcmCompleter GoToDefinitionElseDeclaration
+
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -131,7 +137,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
 
 map <F10> :NERDTreeToggle<cr>
 imap <F10> :NERDTreeToggle<cr>
@@ -156,6 +161,14 @@ vnoremap <F5> :GundoToggle<CR>
 colorscheme molokai
 set noerrorbells
 set vb
+
+" Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 map <D-1> 1gt
 imap <D-1> 1gt

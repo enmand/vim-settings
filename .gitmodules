@@ -79,3 +79,12 @@
 [submodule "ftplugin/sparkup"]
 	path = ftplugin/sparkup
 	url = https://github.com/rstacruz/sparkup
+[submodule "bundle/vim-css-color"]
+	path = bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git
+[submodule "/Users/enmand/.vim/bundle/numbers"]
+	path = /Users/enmand/.vim/bundle/numbers.git
+	url = https://github.com/myusuf3/numbers.vim.git
+[submodule "bundle/numbers"]
+	path = bundle/numbers
+	url = https://github.com/myusuf3/numbers.vim.git
