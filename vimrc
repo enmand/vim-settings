@@ -26,6 +26,11 @@ au BufRead,BufNewFile todo.txt,done.txt set filetype=todo
 " read our profile for $PATH and other environment vairables
 silent !source ~/.profile
 set rtp+=/Users/enmand/.vim/bundle/powerline/powerline/bindings/vim
+filetype off
+filetype plugin indent off
+set rtp+=/usr/local/go/misc/vim/
+filetype plugin indent on
+syntax on
 
 set encoding=utf-8
 " folding
@@ -106,6 +111,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 nnoremap <leader>a :Ack --ignore-dir=node_modules --ignore-dir=build 
 nmap <leader>wt :tabclose<cr>
 nmap <leader>nt :tabnew<cr>
+nmap <leader><left> :tabprevious<cr>
+nmap <leader><right> :tabnext<cr>
 
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
