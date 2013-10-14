@@ -108,7 +108,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 " Helpers. Trailing space isn't a mistake
-nnoremap <leader>a :Ack --ignore-dir=node_modules --ignore-dir=build 
+nnoremap <leader>a :Ack --ignore-dir=node_modules --ignore-dir=build --ignore-dir=vendor 
 nmap <leader>wt :tabclose<cr>
 nmap <leader>nt :tabnew<cr>
 nmap <leader><left> :tabprevious<cr>

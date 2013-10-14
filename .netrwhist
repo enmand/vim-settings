@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/enmand/.vim/bundle/neocomplcache'
 let g:netrw_dirhist_2='/Users/enmand/Dropbox/Code/znanja/resources/vendor/bootstrap-switch/static/less'
+let g:netrw_dirhist_3='/Users/enmand/Dropbox/Code/znanja/znanja/scripts/workers/node/node_modules/hawk'
+let g:netrw_dirhist_4='/Users/enmand/Dropbox/Code/node-reporting'
