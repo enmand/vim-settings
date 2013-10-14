@@ -97,3 +97,12 @@
 [submodule "bundle/LargeFile"]
 	path = bundle/LargeFile
 	url = git@github.com:vim-scripts/LargeFile.git
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = git@github.com:kchmck/vim-coffee-script.git
+[submodule "bundle/rsense"]
+	path = bundle/rsense
+	url = git@github.com:m2ym/rsense.git
+[submodule "bundle/vim-ruby"]
+	path = bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
