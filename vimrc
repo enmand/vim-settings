@@ -1,5 +1,5 @@
 " vim exits with non-zero sometimes, thanks to pathogen.
-filetype on
+filetype indent plugin on
 call pathogen#infect()
 
 if has("syntax")
@@ -22,6 +22,7 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 let g:slime_target = "tmux"
 
 au BufNewFile,BufRead *.pt,*.cpt,*.zpt set filetype=zpt syntax=xml
+au BufNewFile,BufRead *.ejs set filetype=html
 au BufRead,BufNewFile todo.txt,done.txt set filetype=todo
 " read our profile for $PATH and other environment vairables
 silent !source ~/.profile
@@ -53,6 +54,12 @@ set laststatus=2
 set statusline=%f\ %m%h%r%w\ %y\ %{fugitive#statusline()}%=\ B%3n\ ·\ L%5l/%5L\ ·\ C%7(%c%V%)\ ·\ %4(0x%B%)\ ·\ %P
 set incsearch           " Incremental search
 set nu
+set noexpandtab
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+set ci
 set copyindent                  " Preserve vertical alignment when indenting
 set autoindent tabstop=4 shiftwidth=4
 set colorcolumn=61,81              " Highlight long lines
@@ -125,16 +132,19 @@ let g:neocomplcache_enable_at_startup = 0
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_java_javac_config_file_enabled=1
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Ignore node_modules in ctrlp
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|build|__pycache__|.git|.hg|.svn|.npm)$'
+let g:ctrlp_match_func = {'match' : 'matcher#cmatch' }
 
 " NERDTree can be a little annoying
 let g:nerdtree_tabs_open_on_gui_startup = 0
 let g:nerdtree_tabs_open_on_new_tab = 0
 
 " YouCompleteMe
-
+let g:ycm_autoclose_preview_window_after_completion=1
 noremap <leader>jd YcmCompleter GoToDefinitionElseDeclaration
 
 " Highlight trailing whitespace
@@ -168,6 +178,10 @@ vnoremap <F5> :GundoToggle<CR>
 colorscheme molokai
 set noerrorbells
 set vb
+
+" Don't autoload/autosave sessions
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
 
 " Highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
