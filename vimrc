@@ -93,8 +93,17 @@ if has("unix")
 			let macvim_hig_shift_movement = 1
 			set guioptions-=T
 		endif
+	else
+		set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+		map <C-Left> <Esc>:tabprev<CR>
+		map <C-Right> <Esc>:tabnext<CR>
+		map <C-t> <Esc>:tabnew<CR>
+		map <C-x> <Esc>:tabclose<CR>
 	endif
 endif
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
 
 " Enable omni completion. Not required if they are already set elsewhere in
 " .vimrc
@@ -191,23 +200,49 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-map <D-1> 1gt
-imap <D-1> 1gt
-map <D-2> 2gt
-imap <D-2> 2gt
-map <D-3> 3gt
-imap <D-3> 3gt
-map <D-4> 4gt
-imap <D-4> 4gt
-map <D-5> 5gt
-imap <D-5> 5gt
-map <D-6> 6gt
-imap <D-6> 6gt
-map <D-7> 7gt
-imap <D-7> 7gt
-map <D-8> 8gt
-imap <D-8> 8gt
-map <D-9> 9gt
-imap <D-9> 9gt
-map <D-0> 10gt
-imap <D-0> 10gt
+if has("unix")
+	let s:uname = system("uname")
+	if s:uname == "Darwin\n"
+		map <D-1> 1gt
+		imap <D-1> 1gt
+		map <D-2> 2gt
+		imap <D-2> 2gt
+		map <D-3> 3gt
+		imap <D-3> 3gt
+		map <D-4> 4gt
+		imap <D-4> 4gt
+		map <D-5> 5gt
+		imap <D-5> 5gt
+		map <D-6> 6gt
+		imap <D-6> 6gt
+		map <D-7> 7gt
+		imap <D-7> 7gt
+		map <D-8> 8gt
+		imap <D-8> 8gt
+		map <D-9> 9gt
+		imap <D-9> 9gt
+		map <D-0> 10gt
+		imap <D-0> 10gt
+	else
+		map <Esc>1 1gt
+		imap <Esc>1 1gt
+		map <Esc>2 2gt
+		imap <Esc>2 2gt
+		map <Esc>3 3gt
+		imap <Esc>3 3gt
+		map <Esc>4 4gt
+		imap <Esc>4 4gt
+		map <Esc>5 5gt
+		imap <Esc>5 5gt
+		map <Esc>6 6gt
+		imap <Esc>6 6gt
+		map <Esc>7 7gt
+		imap <Esc>7 7gt
+		map <Esc>8 8gt
+		imap <Esc>8 8gt
+		map <Esc>9 9gt
+		imap <Esc>9 9gt
+		map <Esc>0 10gt
+		imap <Esc>0 10gt
+	endif
+endif
