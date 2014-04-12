@@ -118,3 +118,6 @@
 [submodule "bundle/ctrlp-cmatcher"]
 	path = bundle/ctrlp-cmatcher
 	url = git@github.com:JazzCore/ctrlp-cmatcher.git
+[submodule "bundle/vim-hack"]
+	path = bundle/vim-hack
+	url = git://github.com/hhvm/vim-hack.git
