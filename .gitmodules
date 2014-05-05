@@ -121,3 +121,6 @@
 [submodule "bundle/vim-hack"]
 	path = bundle/vim-hack
 	url = git://github.com/hhvm/vim-hack.git
+[submodule "bundle/ag"]
+	path = bundle/ag
+	url = git@github.com:rking/ag.vim.git
