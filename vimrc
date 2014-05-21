@@ -95,11 +95,11 @@ if has("unix")
 		endif
 	else
 		set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
-		map <C-Left> <Esc>:tabprev<CR>
-		map <C-Right> <Esc>:tabnext<CR>
-		map <C-t> <Esc>:tabnew<CR>
-		map <C-x> <Esc>:tabclose<CR>
 	endif
+	map <C-Left> <Esc>:tabprev<CR>
+	map <C-Right> <Esc>:tabnext<CR>
+	map <C-t> <Esc>:tabnew<CR>
+	map <C-x> <Esc>:tabclose<CR>
 endif
 
 set guioptions-=m  "remove menu bar
@@ -223,26 +223,25 @@ if has("unix")
 		imap <D-9> 9gt
 		map <D-0> 10gt
 		imap <D-0> 10gt
-	else
-		map <Esc>1 1gt
-		imap <Esc>1 1gt
-		map <Esc>2 2gt
-		imap <Esc>2 2gt
-		map <Esc>3 3gt
-		imap <Esc>3 3gt
-		map <Esc>4 4gt
-		imap <Esc>4 4gt
-		map <Esc>5 5gt
-		imap <Esc>5 5gt
-		map <Esc>6 6gt
-		imap <Esc>6 6gt
-		map <Esc>7 7gt
-		imap <Esc>7 7gt
-		map <Esc>8 8gt
-		imap <Esc>8 8gt
-		map <Esc>9 9gt
-		imap <Esc>9 9gt
-		map <Esc>0 10gt
-		imap <Esc>0 10gt
 	endif
+	map <Esc>1 1gt
+	imap <Esc>1 1gt
+	map <Esc>2 2gt
+	imap <Esc>2 2gt
+	map <Esc>3 3gt
+	imap <Esc>3 3gt
+	map <Esc>4 4gt
+	imap <Esc>4 4gt
+	map <Esc>5 5gt
+	imap <Esc>5 5gt
+	map <Esc>6 6gt
+	imap <Esc>6 6gt
+	map <Esc>7 7gt
+	imap <Esc>7 7gt
+	map <Esc>8 8gt
+	imap <Esc>8 8gt
+	map <Esc>9 9gt
+	imap <Esc>9 9gt
+	map <Esc>0 10gt
+	imap <Esc>0 10gt
 endif
