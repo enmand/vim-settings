@@ -194,7 +194,7 @@ nnoremap <F5> :GundoToggle<CR>
 inoremap <F5> :GundoToggle<CR>
 vnoremap <F5> :GundoToggle<CR>
 
-colorscheme molokai
+colorscheme hybrid
 set noerrorbells
 set vb
 
